@@ -38,14 +38,16 @@
 // renderTasks(tasks);
 export const getTitleElement = () => {
   const titleElem = document.querySelector('.title');
-  return console.dir(titleElem);
+  console.dir(titleElem);
+  return titleElem;
 };
 
 getTitleElement();
 
 export const getInputElem = () => {
   const inputElem = document.querySelector('input[type="text"]');
-  return console.dir(inputElem);
+  console.dir(inputElem);
+  return inputElem;
 };
 
 getInputElem();
