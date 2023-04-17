@@ -13,11 +13,11 @@ const tasks = [
  * @return {undefined}
  */
 const renderTasks = (tasksList) => {
-  const listItems = tasksList.map((huy) => {
+  const listItems = tasksList.map((elelm) => {
     //li .list__item if done = true ==> .list__item_done
     //   console.log(task);
-    const done = huy.done ? 'list__item_done' : '';
-    const text = huy.text;
+    const done = elelm.done ? 'list__item_done' : '';
+    const text = elelm.text;
     const listItem = document.createElement('li');
     listItem.setAttribute('class', `list__item ${done}`);
 
@@ -36,4 +36,4 @@ const renderTasks = (tasksList) => {
   // list.replaceChildren(...listItems);
   list.replaceChildren(...listItems);
 };
-// renderTasks(tasks);
+renderTasks(tasks);
