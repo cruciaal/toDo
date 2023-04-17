@@ -42,7 +42,7 @@ export const getTitleElement = () => {
   return titleElem;
 };
 
-getTitleElement();
+// getTitleElement();
 
 export const getInputElem = () => {
   const inputElem = document.querySelector('input[type="text"]');
@@ -50,4 +50,4 @@ export const getInputElem = () => {
   return inputElem;
 };
 
-getInputElem();
+// getInputElem();
