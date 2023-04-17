@@ -36,4 +36,4 @@ const renderTasks = (tasksList) => {
   // list.replaceChildren(...listItems);
   list.replaceChildren(...listItems);
 };
-renderTasks(tasks);
+// renderTasks(tasks);
