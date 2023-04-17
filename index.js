@@ -36,18 +36,32 @@
 // };
 
 // renderTasks(tasks);
-export const getTitleElement = () => {
-  const titleElem = document.querySelector('.title');
-  console.dir(titleElem);
-  return titleElem;
-};
+// export const getTitleElement = () => {
+//   const titleElem = document.querySelector('.title');
+//   console.dir(titleElem);
+//   return titleElem;
+// };
 
-// getTitleElement();
+// // getTitleElement();
 
-export const getInputElement = () => {
-  const inputElem = document.querySelector('input[type="text"]');
-  console.dir(inputElem);
-  return inputElem;
-};
+// export const getInputElement = () => {
+//   const inputElem = document.querySelector('input[type="text"]');
+//   console.dir(inputElem);
+//   return inputElem;
+// };
 
 // getInputElem();
+
+export const getItemsList = () => {
+  const elementsList = document.querySelectorAll('.technology');
+  console.dir(elementsList);
+  return elementsList;
+};
+getItemsList();
+
+export const getItemsArray = () => {
+  const elementsArray = Array.from(document.querySelectorAll('.tool'));
+  console.dir(elementsArray);
+  return elementsArray;
+};
+getItemsArray();
