@@ -66,26 +66,30 @@
 // };
 // getItemsArray();
 
-export const getTitle = () => {
-  const titleElem = document.querySelector('.title');
-  return titleElem.textContent;
-};
-// console.log(getTitle());
+// export const getTitle = () => {
+//   const titleElem = document.querySelector('.title');
+//   return titleElem.textContent;
+// };
+// // console.log(getTitle());
 
-export const getDescription = () => {
-  const descriptElem = document.querySelector('.about');
-  return descriptElem.innerText;
-};
-// console.log(getDescription());
+// export const getDescription = () => {
+//   const descriptElem = document.querySelector('.about');
+//   return descriptElem.innerText;
+// };
+// // console.log(getDescription());
 
-export const getPlans = () => {
-  const plansElem = document.querySelector('.plans');
-  return plansElem.innerHTML;
-};
-// console.log(getPlans());
+// export const getPlans = () => {
+//   const plansElem = document.querySelector('.plans');
+//   return plansElem.innerHTML;
+// };
+// // console.log(getPlans());
 
-export const getGoal = () => {
-  const goalElem = document.querySelector('.goal');
-  return goalElem.outerHTML;
-};
+// export const getGoal = () => {
+//   const goalElem = document.querySelector('.goal');
+//   return goalElem.outerHTML;
+// };
 // console.log(getGoal());
+export const setTitle = (text) => {
+  const titleText = document.querySelector('.title');
+  titleText.textContent = text;
+};
