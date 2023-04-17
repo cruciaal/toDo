@@ -44,7 +44,7 @@ export const getTitleElement = () => {
 
 // getTitleElement();
 
-export const getInputElem = () => {
+export const getInputElement = () => {
   const inputElem = document.querySelector('input[type="text"]');
   console.dir(inputElem);
   return inputElem;
