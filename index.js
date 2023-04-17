@@ -1,6 +1,6 @@
 'use strict';
 
-export const tasks = [
+const tasks = [
   { text: 'Buy milk', done: false },
   { text: 'Pick up Tom from airport', done: false },
   { text: 'Visit party', done: false },
@@ -12,12 +12,12 @@ export const tasks = [
  * @param {object[]} tasksList
  * @return {undefined}
  */
-export const renderTasks = (tasksList) => {
-  const listItems = tasksList.map((task) => {
+const renderTasks = (tasksList) => {
+  const listItems = tasksList.map((huy) => {
     //li .list__item if done = true ==> .list__item_done
     //   console.log(task);
-    const done = task.done ? 'list__item_done' : '';
-    const text = task.text;
+    const done = huy.done ? 'list__item_done' : '';
+    const text = huy.text;
     const listItem = document.createElement('li');
     listItem.setAttribute('class', `list__item ${done}`);
 
@@ -33,5 +33,7 @@ export const renderTasks = (tasksList) => {
   });
   // add tasks to list
   const list = document.querySelector('.list');
+  // list.replaceChildren(...listItems);
   list.replaceChildren(...listItems);
 };
+renderTasks(tasks);
