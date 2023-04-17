@@ -52,16 +52,40 @@
 
 // getInputElem();
 
-export const getItemsList = () => {
-  const elementsList = document.querySelectorAll('.technology');
-  console.dir(elementsList);
-  return elementsList;
-};
-getItemsList();
+// export const getItemsList = () => {
+//   const elementsList = document.querySelectorAll('.technology');
+//   console.dir(elementsList);
+//   return elementsList;
+// };
+// getItemsList();
 
-export const getItemsArray = () => {
-  const elementsArray = Array.from(document.querySelectorAll('.tool'));
-  console.dir(elementsArray);
-  return elementsArray;
+// export const getItemsArray = () => {
+//   const elementsArray = Array.from(document.querySelectorAll('.tool'));
+//   console.dir(elementsArray);
+//   return elementsArray;
+// };
+// getItemsArray();
+
+export const getTitle = () => {
+  const titleElem = document.querySelector('.title');
+  return titleElem.textContent;
 };
-getItemsArray();
+// console.log(getTitle());
+
+export const getDescription = () => {
+  const descriptElem = document.querySelector('.about');
+  return descriptElem.innerText;
+};
+// console.log(getDescription());
+
+export const getPlans = () => {
+  const plansElem = document.querySelector('.plans');
+  return plansElem.innerHTML;
+};
+// console.log(getPlans());
+
+export const getGoal = () => {
+  const goalElem = document.querySelector('.goal');
+  return goalElem.outerHTML;
+};
+// console.log(getGoal());
