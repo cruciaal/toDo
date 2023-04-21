@@ -1,3 +1,60 @@
+const elementDiv = document.querySelector('.rect_div');
+const elementP = document.querySelector('.rect_p');
+const elementSpan = document.querySelector('.rect_span');
+
+const logTarget = (text, color) => {
+  const eventsListElem = document.querySelector('.events-list');
+
+  eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
+
+  const clearButton = document.querySelector('.clear-btn');
+  clearButton.addEventListener('click', () => {
+    eventsListElem.innerHTML = '';
+  });
+};
+const attachHandlersBtn = document.querySelector('.attach-handlers-btn');
+
+attachHandlersBtn.addEventListener('click', () => {
+  elementDiv.addEventListener('click', logGreyDiv, true);
+  elementDiv.addEventListener('click', logGreenDiv);
+
+  elementP.addEventListener('click', logGreyP, true);
+  elementP.addEventListener('click', logGreenP);
+
+  elementSpan.addEventListener('click', logSpanGrey, true);
+  elementSpan.addEventListener('click', logSpanGreen);
+});
+
+const removeHandlersBtn = document.querySelector('.remove-handlers-btn');
+removeHandlersBtn.addEventListener('click', () => {
+  elementDiv.removeEventListener('click', logGreyDiv, true);
+  elementDiv.removeEventListener('click', logGreenDiv);
+
+  elementP.removeEventListener('click', logGreyP, true);
+  elementP.removeEventListener('click', logGreenP);
+
+  elementSpan.removeEventListener('click', logSpanGrey, true);
+  elementSpan.removeEventListener('click', logSpanGreen);
+});
+
+const logGreyDiv = logTarget.bind(null, 'DIV', 'grey');
+const logGreenDiv = logTarget.bind(null, 'DIV', 'green');
+
+const logGreyP = logTarget.bind(null, 'P', 'grey');
+const logGreenP = logTarget.bind(null, 'P', 'green');
+
+const logSpanGrey = logTarget.bind(null, 'SPAN', 'grey');
+const logSpanGreen = logTarget.bind(null, 'SPAN', 'green');
+
+elementDiv.addEventListener('click', logGreyDiv, true);
+elementDiv.addEventListener('click', logGreenDiv);
+
+elementP.addEventListener('click', logGreyP, true);
+elementP.addEventListener('click', logGreenP);
+
+elementSpan.addEventListener('click', logSpanGrey, true);
+elementSpan.addEventListener('click', logSpanGreen);
+
 // const tasks = [
 //   { text: 'Buy milk', done: false },
 //   { text: 'Pick up Tom from airport', done: false },
