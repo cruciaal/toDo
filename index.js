@@ -1,59 +1,59 @@
-const elementDiv = document.querySelector('.rect_div');
-const elementP = document.querySelector('.rect_p');
-const elementSpan = document.querySelector('.rect_span');
+// const elementDiv = document.querySelector('.rect_div');
+// const elementP = document.querySelector('.rect_p');
+// const elementSpan = document.querySelector('.rect_span');
 
-const logTarget = (text, color) => {
-  const eventsListElem = document.querySelector('.events-list');
+// const logTarget = (text, color) => {
+//   const eventsListElem = document.querySelector('.events-list');
 
-  eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
+//   eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
 
-  const clearButton = document.querySelector('.clear-btn');
-  clearButton.addEventListener('click', () => {
-    eventsListElem.innerHTML = '';
-  });
-};
-const attachHandlersBtn = document.querySelector('.attach-handlers-btn');
+//   const clearButton = document.querySelector('.clear-btn');
+//   clearButton.addEventListener('click', () => {
+//     eventsListElem.innerHTML = '';
+//   });
+// };
+// const attachHandlersBtn = document.querySelector('.attach-handlers-btn');
 
-attachHandlersBtn.addEventListener('click', () => {
-  elementDiv.addEventListener('click', logGreyDiv, true);
-  elementDiv.addEventListener('click', logGreenDiv);
+// attachHandlersBtn.addEventListener('click', () => {
+//   elementDiv.addEventListener('click', logGreyDiv, true);
+//   elementDiv.addEventListener('click', logGreenDiv);
 
-  elementP.addEventListener('click', logGreyP, true);
-  elementP.addEventListener('click', logGreenP);
+//   elementP.addEventListener('click', logGreyP, true);
+//   elementP.addEventListener('click', logGreenP);
 
-  elementSpan.addEventListener('click', logSpanGrey, true);
-  elementSpan.addEventListener('click', logSpanGreen);
-});
+//   elementSpan.addEventListener('click', logSpanGrey, true);
+//   elementSpan.addEventListener('click', logSpanGreen);
+// });
 
-const removeHandlersBtn = document.querySelector('.remove-handlers-btn');
-removeHandlersBtn.addEventListener('click', () => {
-  elementDiv.removeEventListener('click', logGreyDiv, true);
-  elementDiv.removeEventListener('click', logGreenDiv);
+// const removeHandlersBtn = document.querySelector('.remove-handlers-btn');
+// removeHandlersBtn.addEventListener('click', () => {
+//   elementDiv.removeEventListener('click', logGreyDiv, true);
+//   elementDiv.removeEventListener('click', logGreenDiv);
 
-  elementP.removeEventListener('click', logGreyP, true);
-  elementP.removeEventListener('click', logGreenP);
+//   elementP.removeEventListener('click', logGreyP, true);
+//   elementP.removeEventListener('click', logGreenP);
 
-  elementSpan.removeEventListener('click', logSpanGrey, true);
-  elementSpan.removeEventListener('click', logSpanGreen);
-});
+//   elementSpan.removeEventListener('click', logSpanGrey, true);
+//   elementSpan.removeEventListener('click', logSpanGreen);
+// });
 
-const logGreyDiv = logTarget.bind(null, 'DIV', 'grey');
-const logGreenDiv = logTarget.bind(null, 'DIV', 'green');
+// const logGreyDiv = logTarget.bind(null, 'DIV', 'grey');
+// const logGreenDiv = logTarget.bind(null, 'DIV', 'green');
 
-const logGreyP = logTarget.bind(null, 'P', 'grey');
-const logGreenP = logTarget.bind(null, 'P', 'green');
+// const logGreyP = logTarget.bind(null, 'P', 'grey');
+// const logGreenP = logTarget.bind(null, 'P', 'green');
 
-const logSpanGrey = logTarget.bind(null, 'SPAN', 'grey');
-const logSpanGreen = logTarget.bind(null, 'SPAN', 'green');
+// const logSpanGrey = logTarget.bind(null, 'SPAN', 'grey');
+// const logSpanGreen = logTarget.bind(null, 'SPAN', 'green');
 
-elementDiv.addEventListener('click', logGreyDiv, true);
-elementDiv.addEventListener('click', logGreenDiv);
+// elementDiv.addEventListener('click', logGreyDiv, true);
+// elementDiv.addEventListener('click', logGreenDiv);
 
-elementP.addEventListener('click', logGreyP, true);
-elementP.addEventListener('click', logGreenP);
+// elementP.addEventListener('click', logGreyP, true);
+// elementP.addEventListener('click', logGreenP);
 
-elementSpan.addEventListener('click', logSpanGrey, true);
-elementSpan.addEventListener('click', logSpanGreen);
+// elementSpan.addEventListener('click', logSpanGrey, true);
+// elementSpan.addEventListener('click', logSpanGreen);
 
 // const tasks = [
 //   { text: 'Buy milk', done: false },
@@ -154,3 +154,51 @@ elementSpan.addEventListener('click', logSpanGreen);
 //   const bodyElement = document.querySelector('body');
 //   bodyElement.innerHTML = `<button>${buttonText}</button>`;
 // }
+
+const emailInputElem = document.querySelector('#email');
+const passwordInputElem = document.querySelector('#password');
+
+const emailErrorElem = document.querySelector('.error-text_email');
+const passwordErrorElem = document.querySelector('.error-text_password');
+
+const isRequired = (value) => (value ? undefined : 'Required');
+
+const isEmail = (value) =>
+  value.includes('@') ? undefined : 'Shoul be an email';
+
+// const validate = (fieldName, value) => {
+
+// }
+
+const onEmailChange = (event) => {
+  const errorText = [isRequired, isEmail]
+    .map((val) => val(event.target.value))
+    .filter((errorText) => errorText)
+    .join(', ');
+  emailErrorElem.textContent = errorText;
+};
+
+const onPasswordChange = (event) => {
+  const errorText = [isRequired]
+    .map((val) => val(event.target.value))
+    .filter((errorText) => errorText)
+    .join(', ');
+  passwordErrorElem.textContent = errorText;
+};
+
+emailInputElem.addEventListener('input', onEmailChange);
+passwordInputElem.addEventListener('input', onPasswordChange);
+
+const formElement = document.querySelector('.login-form');
+
+const onFormSubmit = (event) => {
+  event.preventDefault();
+  const formData = [...new FormData(formElement)].reduce(
+    (acc, [field, value]) => ({ ...acc, [field]: value }),
+    {}
+  );
+
+  alert(JSON.stringify(formData));
+};
+
+formElement.addEventListener('submit', onFormSubmit);
