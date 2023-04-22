@@ -164,7 +164,7 @@ const passwordErrorElem = document.querySelector('.error-text_password');
 const isRequired = (value) => (value ? undefined : 'Required');
 
 const isEmail = (value) =>
-  value.includes('@') ? undefined : 'Shoul be an email';
+  value.includes('@') ? undefined : 'Should be an email';
 
 // const validate = (fieldName, value) => {
 
